@@ -1,0 +1,54 @@
+#server.port=4444
+#spring.application.name=Gateway
+#
+#spring.cloud.config.failFast=true
+#spring.cloud.config.uri=http://localhost:1111
+#eureka.client.service-url.defaultZone=http://localhost:2222/eureka
+
+server:
+  port: 4444
+
+spring:
+  application:
+    name: Gateway
+  cloud:
+    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+      routes:
+        - id: ms2
+          uri: lb://MS2
+          predicates:
+            - Path=/simdetails/**
+        - id: ms1
+          uri: lb://MS1
+          predicates:
+            - Path=/simoffers/**
+        - id: address-ms
+          uri: lb://AddressMS
+          predicates:
+            - Path=/customeraddress/**
+        - id: identity-ms
+          uri: lb://CustomerIdentityMS
+          predicates:
+            - Path=/customeridentity/**
+        - id: customer-ms
+          uri: lb://CustomerMS
+          predicates:
+            - Path=/customer/**
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:2222/eureka
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+#spring.cloud.gateway.discovery.locator.enabled=true
+#
+#spring.cloud.gateway.routes.id=MS2
+#spring.cloud.gateway.routes.uri= lb://MS2
+#spring.cloud.gateway.routes.predicates.Path=/simdetails/

@@ -1,0 +1,11 @@
+#spring:
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#      routes:
+#        - id: MS2
+#          uri: lb://MS2
+#          predicates:
+#            - Path=/simdetails/validate

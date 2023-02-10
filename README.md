@@ -60,9 +60,9 @@ Application flow with functionality:
  1) SIM Details:  Customer has to enter the SIM number present in the SIM starter kit and Service number (mobile number), so that provider can     validate the SIM and Service number. Once details are validated, customer should be able to see the available offers for the provided SIM       details.
     ### Acceptance Criteria:
 
-     a) SIM number should be 13-digit numeric value
-     b) Service number should be 10-digit numeric value
-     c) Verify the values for invalid SIM/Service details, if the provided SIM/Service number is invalid display "Invalid details, please check         again SIM number/Service number!"
+     - SIM number should be 13-digit numeric value
+     - Service number should be 10-digit numeric value
+     - Verify the values for invalid SIM/Service details, if the provided SIM/Service number is invalid display "Invalid details, please check         again SIM number/Service number!"
 
      Verify SIM already activated, if the provided SIM is already activated display "SIM already active"   
 

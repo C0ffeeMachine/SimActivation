@@ -1,8 +1,8 @@
-# SimActivation
+# Project - SimActivation
 This project is a cloud native application. Backend is built using spring boot . This project implements feature such as circuit breaker pattern for fault tolerance , client side load balancing, Eureka service registry and service discovery.
 
 
-# Feign Client
+## Feign Client
 The Feign client automatically integrates with Load balancing APIs and Circuit Breaker APIs to provide load balancing and fallback mechanism.
 
 Few drawbacks with RestTemplate are :

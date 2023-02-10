@@ -57,22 +57,20 @@ Two types of load balacing are:-
 
 Application flow with functionality:
 
- 1) SIM Details:  Customer has to enter the SIM number present in the SIM starter kit and Service number (mobile number), so that provider can validate the SIM and Service number. Once details are validated, customer should be able to see the available offers for the provided SIM details.
-### Acceptance Criteria:
+ 1) SIM Details:  Customer has to enter the SIM number present in the SIM starter kit and Service number (mobile number), so that provider can     validate the SIM and Service number. Once details are validated, customer should be able to see the available offers for the provided SIM       details.
+    ### Acceptance Criteria:
 
-SIM number should be 13-digit numeric value
+     a) SIM number should be 13-digit numeric value
+     b) Service number should be 10-digit numeric value
+     c) Verify the values for invalid SIM/Service details, if the provided SIM/Service number is invalid display "Invalid details, please check         again SIM number/Service number!"
 
-Service number should be 10-digit numeric value
+     Verify SIM already activated, if the provided SIM is already activated display "SIM already active"   
 
-Verify the values for invalid SIM/Service details, if the provided SIM/Service number is invalid display "Invalid details, please check again SIM number/Service number!"
+    ### REST endpoint:
 
-Verify SIM already activated, if the provided SIM is already activated display "SIM already active"   
+     Create a REST endpoint to do SIM validation
 
-### REST endpoint:
-
-Create a REST endpoint to do SIM validation
-
-This is a POST request accepting SIM number and Service number. Verify that combination of SIM number and Service number are correct. On successful validation, respective sim offer details has to be returned. On failure, return the response with customized error messages.
+     This is a POST request accepting SIM number and Service number. Verify that combination of SIM number and Service number are correct. On        successful validation, respective sim offer details has to be returned. On failure, return the response with customized error messages.
 
 
 

@@ -57,7 +57,7 @@ Two types of load balacing are:-
 
 Application flow with functionality:
 
- 1) SIM Details:  Customer has to enter the SIM number present in the SIM starter kit and Service number (mobile number), so that provider can     validate the SIM and Service number. Once details are validated, customer should be able to see the available offers for the provided SIM       details.
+ 1) **SIM Details:**  Customer has to enter the SIM number present in the SIM starter kit and Service number (mobile number), so that provider    can validate the SIM and Service number. Once details are validated, customer should be able to see the available offers for the provided      SIM details.
     ### Acceptance Criteria:
 
      - SIM number should be 13-digit numeric value
@@ -68,30 +68,30 @@ Application flow with functionality:
 
     ### REST endpoint:
 
-     Create a REST endpoint to do SIM validation
+     - Create a REST endpoint to do SIM validation
 
-     This is a POST request accepting SIM number and Service number. Verify that combination of SIM number and Service number are correct. On        successful validation, respective sim offer details has to be returned. On failure, return the response with customized error messages.
-
-
+     - This is a POST request accepting SIM number and Service number. Verify that combination of SIM number and Service number are correct. On        successful validation, respective sim offer details has to be returned. On failure, return the response with customized error messages.
 
 
- 2) Customer Basics Details: Assuming that while purchasing the SIM, email and date of birth(dob) details are submitted by the customer. Now to activate the SIM, as part of verification process, customer has to provide email and dob details for validation. These details are validated against stored data and for invalid details display custom error message.
 
-### Acceptance Criteria:
 
-Both email and dob are mandatory fields, if not present then display "Email/dob value is required"
+ 2) **Customer Basics Details:** Assuming that while purchasing the SIM, email and date of birth(dob) details are submitted by the customer.       Now to activate the SIM, as part of verification process, customer has to provide email and dob details for validation. These details are       validated against stored data and for invalid details display custom error message.
 
-dob should be in yyyy-mm-dd format
+- ### Acceptance Criteria:
 
-Email should contain one '@' symbol followed with that one dot(.) then it should accept only 2 or 3 characters. If invalid then display "Invalid email"
+ - Both email and dob are mandatory fields, if not present then display "Email/dob value is required"
 
-If the provided email and dob does not exist then display "No request placed for you." otherwise return success
+ - dob should be in yyyy-mm-dd format
 
-### REST endpoint:
+ - Email should contain one '@' symbol followed with that one dot(.) then it should accept only 2 or 3 characters. If invalid then display       "Invalid email"
 
-Create a REST endpoint to validate customer basic details against stored data
+ - If the provided email and dob does not exist then display "No request placed for you." otherwise return success
 
-This is a POST request accepting email and dob details, verify that these details are correct against stored data and respond appropriate error messages in case of incorrect values.
+- ### REST endpoint:
+
+ - Create a REST endpoint to validate customer basic details against stored data
+
+ - This is a POST request accepting email and dob details, verify that these details are correct against stored data and respond appropriate      error messages in case of incorrect values.
 
 
 

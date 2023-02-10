@@ -77,73 +77,72 @@ Application flow with functionality:
 
  2) **Customer Basics Details:** Assuming that while purchasing the SIM, email and date of birth(dob) details are submitted by the customer.       Now to activate the SIM, as part of verification process, customer has to provide email and dob details for validation. These details are       validated against stored data and for invalid details display custom error message.
 
-- ### Acceptance Criteria:
+    ### Acceptance Criteria:
 
- - Both email and dob are mandatory fields, if not present then display "Email/dob value is required"
+     - Both email and dob are mandatory fields, if not present then display "Email/dob value is required"
 
- - dob should be in yyyy-mm-dd format
+     - dob should be in yyyy-mm-dd format
 
- - Email should contain one '@' symbol followed with that one dot(.) then it should accept only 2 or 3 characters. If invalid then display       "Invalid email"
+     - Email should contain one '@' symbol followed with that one dot(.) then it should accept only 2 or 3 characters. If invalid then display       "Invalid email"
 
- - If the provided email and dob does not exist then display "No request placed for you." otherwise return success
+     - If the provided email and dob does not exist then display "No request placed for you." otherwise return success
 
-- ### REST endpoint:
+    ### REST endpoint:
 
- - Create a REST endpoint to validate customer basic details against stored data
+     - Create a REST endpoint to validate customer basic details against stored data
 
- - This is a POST request accepting email and dob details, verify that these details are correct against stored data and respond appropriate      error messages in case of incorrect values.
-
-
-
-
- 3) Customer Personal Details:  As a customer, provide personal details such as first name, last name and confirm email for customer personal details validation.Here confirm email acts like OTP to validate the stored customer data. Retrieve customer record based on first name and last name, validate entered confirm email with stored email id, if matching return success otherwise return custom error message.
-### Acceptance Criteria:
-
-Firstname and last name should accept only alphabets, the maximum length is 15. For incorrect value display "Firstname/Lastname should be maximum of 15 characters"                               
-
-Validate First name and last name with the existing details if not matching display "No customer found for the provided details"    
-
- Verify that error message “Invalid email details!!” is displayed if both email and confirm email are not matching.                                                               
-
-### REST endpoint:
-
-This is a POST request which accepts the first name, last name and confirm email. Verify that provided details are correct, respond appropriate error messages in case of incorrect values otherwise get customer data based on provided first and last name, compare stored email with provided confirm email value. If valid, return success otherwise appropriate error message.
+     - This is a POST request accepting email and dob details, verify that these details are correct against stored data and respond appropriate      error messages in case of incorrect values.
 
 
 
- 4) Update Customer Address: Assuming that while purchasing the SIM, communication address has been submitted. Now customer should be able to update the address if required for further communication.
-### Acceptance Criteria:
 
-Address length should be maximum of 25 characters otherwise display "Address should be maximum of 25 characters"                                                    
+ 3) **Customer Personal Details:**  As a customer, provide personal details such as first name, last name and confirm email for customer personal details validation.Here confirm email acts like OTP to validate the stored customer data. Retrieve customer record based on first name and last name, validate entered confirm email with stored email id, if matching return success otherwise return custom error message.
+    ### Acceptance Criteria:
 
-Verify that PIN code is 6-digit number. For incorrect value, display "Pin should be 6 digit number"
+     - Firstname and last name should accept only alphabets, the maximum length is 15. For incorrect value display "Firstname/Lastname should be maximum of 15 characters"                               
 
-City and state should not contain any special characters except space. For incorrect value, display "City/State should not contain any special characters except space"
+     - Validate First name and last name with the existing details if not matching display "No customer found for the provided details"    
 
-### REST endpoint:
+      - Verify that error message “Invalid email details!!” is displayed if both email and confirm email are not matching.                                                               
 
-This is a PUT request which accepts address details
+    ### REST endpoint:
 
-Update new address if details already present otherwise add address and respond with updated address
+     - This is a POST request which accepts the first name, last name and confirm email. Verify that provided details are correct, respond appropriate error messages in case of incorrect values otherwise get customer data based on provided first and last name, compare stored email with provided confirm email value. If valid, return success otherwise appropriate error message.
 
 
-Note: Verify new address update in CustomerAddress table
 
- 5) Customer ID Proof Validation: Customer should provide valid government identify proof(Example: Aadhar id, passport etc). Here you can consider Aadhar card for Id proof check.
+ 4) **Update Customer Address:** Assuming that while purchasing the SIM, communication address has been submitted. Now customer should be able to update the address if required for further communication.
+    ### Acceptance Criteria:
 
-### Acceptance Criteria:
+     - Address length should be maximum of 25 characters otherwise display "Address should be maximum of 25 characters"                                                    
+     - Verify that PIN code is 6-digit number. For incorrect value, display "Pin should be 6 digit number"
 
-Enter Aadhar unique number which is present in the given id, it should be 16 digit otherwise display "Id should be 16 digit"
+     - City and state should not contain any special characters except space. For incorrect value, display "City/State should not contain any special characters except space"
 
-Enter first name, last name, it should be match with stored Id proof values and also match with the previously provided first name and last name. For incorrect values display "Invalid details"
+    ### REST endpoint:
 
-Enter date of birth in yyyy-mm-dd format and it should match previously provided dob. For incorrect values, display "Incorrect date of birth details"
+     - This is a PUT request which accepts address details
 
-All inputs are mandatory fields. If all the details are valid then proceed with activating the SIM status
+     - Update new address if details already present otherwise add address and respond with updated address
 
-### REST endpoint:
 
-This is a POST request which accepts Id proof details, verify values and respond customized error messages for incorrect values
+**Note: Verify new address update in CustomerAddress table**
 
-Verify that entered values are matching with the stored data, if matching respond success and change the status of SIM in SimDetails table from “inactive” to “active” otherwise respond with appropriate message.
+ 5) **Customer ID Proof Validation:** Customer should provide valid government identify proof(Example: Aadhar id, passport etc). Here you can consider Aadhar card for Id proof check.
+
+    ### Acceptance Criteria:
+
+     - Enter Aadhar unique number which is present in the given id, it should be 16 digit otherwise display "Id should be 16 digit"
+
+     - Enter first name, last name, it should be match with stored Id proof values and also match with the previously provided first name and last name. For incorrect values display "Invalid details"
+
+     - Enter date of birth in yyyy-mm-dd format and it should match previously provided dob. For incorrect values, display "Incorrect date of birth details"
+
+     - All inputs are mandatory fields. If all the details are valid then proceed with activating the SIM status
+
+    ### REST endpoint:
+
+     - This is a POST request which accepts Id proof details, verify values and respond customized error messages for incorrect values
+
+     - Verify that entered values are matching with the stored data, if matching respond success and change the status of SIM in SimDetails table from “inactive” to “active” otherwise respond with appropriate message.
 
